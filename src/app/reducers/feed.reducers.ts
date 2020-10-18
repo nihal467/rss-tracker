@@ -83,11 +83,23 @@ const reducer = createReducer(
         articles: { ...state.articles, [state.activeFeed]: updateArticles },
       };
     } else if (activeArticles) {
+      const articles = [...activeArticles.item];
+      articles.sort((a, b) => {
+        if (a.pubDate > b.pubDate) {
+          return -1;
+        }
+
+        if (b.pubDate > a.pubDate) {
+          return 1;
+        }
+
+        return 0;
+      });
       return {
         ...state,
         articles: {
           ...state.articles,
-          [state.activeFeed]: activeArticles.item,
+          [state.activeFeed]: articles,
         },
       };
     } else {
