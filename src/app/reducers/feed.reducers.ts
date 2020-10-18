@@ -1,4 +1,3 @@
-import { state } from '@angular/animations';
 /**
  * this is reducer file is intended to listen to
  * the ngrx store actions which are dispatched from components and services
@@ -6,17 +5,10 @@ import { state } from '@angular/animations';
  * new state without mutating existing state
  */
 import { Action, createReducer, on } from '@ngrx/store';
+import { AppState } from 'src/app/models/app-state';
 import * as FeedActions from '../actions/feed.actions';
-interface AppState {
-  feedUrls: Array<string>;
-  newFeedUrl: string;
-  rssFeeds: Array<object>;
-  activeFeed: string;
-  articles: object;
-  error: string;
-}
 
-export const intialState = {
+export const intialState: AppState = {
   feedUrls: [
     'https://www.smh.com.au/rss/feed.xml',
     'assets/mocks/mock.feed.json',
@@ -144,6 +136,6 @@ const reducer = createReducer(
   })
 );
 
-export const FeedReducer = (state: any, action: Action): any => {
+export const FeedReducer = (state: AppState, action: Action): any => {
   return reducer(state, action);
 };

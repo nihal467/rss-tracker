@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { Observable, of } from 'rxjs';
+import { AppState, Feed } from 'src/app/models/app-state';
 import {
   delay,
   distinctUntilChanged,
@@ -17,10 +18,10 @@ import * as FeedAction from '../../../actions/feed.actions';
 })
 export class RssFeedsHomeComponent implements OnInit {
   feeds$: Observable<any>;
-  channels: any[];
+  channels: Array<Feed>;
   activeFeed: string;
   error: string;
-  constructor(private store: Store<{ feeds: any }>) {
+  constructor(private store: Store<{ feeds: AppState }>) {
     this.feeds$ = store.pipe(select('feeds'));
   }
 

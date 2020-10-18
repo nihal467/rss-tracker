@@ -5,7 +5,8 @@ import * as xmlParser from 'fast-xml-parser';
 import { EMPTY, of } from 'rxjs';
 import * as FeedActions from '../actions/feed.actions';
 import { RssFeedsService } from 'src/app/rss-feeds/services/rss-feeds.service';
-import { Store } from '@ngrx/store';
+import { select, Store } from '@ngrx/store';
+import { AppState, Article, Feed } from 'src/app/models/app-state';
 /**
  * this is effect file is intended to listen to
  * ngrx store actions which are dispatched from components and services
@@ -32,8 +33,8 @@ export class FeedEffects {
                 feedObject = JSON.parse(feedObject);
               }
               const subscription = this.store
-                .select('feeds')
-                .subscribe((res) => {
+                .pipe(select('feeds'))
+                .subscribe((res: AppState) => {
                   newFeedUrl = res.newFeedUrl;
                   feedObject.rssUrl = res.feedUrls[i];
                   activeFeed = res.activeFeed;
@@ -82,7 +83,7 @@ export class FeedEffects {
   constructor(
     private actions$: Actions,
     private rssFeedService: RssFeedsService,
-    private store: Store<any>
+    private store: Store<{ feeds: AppState }>
   ) {}
 
   /**

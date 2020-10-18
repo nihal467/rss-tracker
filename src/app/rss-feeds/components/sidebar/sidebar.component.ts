@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
+import { AppState, Feed } from 'src/app/models/app-state';
 import * as FeedAction from '../../../actions/feed.actions';
 
 @Component({
@@ -8,10 +9,9 @@ import * as FeedAction from '../../../actions/feed.actions';
   styleUrls: ['./sidebar.component.scss'],
 })
 export class SidebarComponent implements OnInit {
-  @Input() channels;
-  @Input() activeFeed;
-  subscriber: any;
-  constructor(private store: Store<any>) {}
+  @Input() channels: Array<Feed>;
+  @Input() activeFeed: string;
+  constructor(private store: Store<AppState>) {}
 
   ngOnInit(): void {}
 
@@ -28,8 +28,6 @@ export class SidebarComponent implements OnInit {
   /**
    * shows the selected feeds articles and highlight the selected feed in sidebar
    * @param id the {string} that holds feedurl
-   * @param unsubscribe the {boolean} that used to unsubscribe store subscription
-   * if this method called from store subscription.
    */
   showArticles(id): void {
     this.activeFeed = id;

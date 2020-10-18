@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { AppState, Article } from 'src/app/models/app-state';
 import * as FeedAction from '../../../actions/feed.actions';
 
 @Component({
@@ -8,8 +9,8 @@ import * as FeedAction from '../../../actions/feed.actions';
   styleUrls: ['./main-content.component.scss'],
 })
 export class MainContentComponent implements OnInit {
-  articles: any = [];
-  constructor(private store: Store<any>) {}
+  articles: Array<Article> = [];
+  constructor(private store: Store<{ feeds: AppState }>) {}
 
   ngOnInit(): void {
     /**
