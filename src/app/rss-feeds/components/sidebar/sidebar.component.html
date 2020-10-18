@@ -1,20 +1,22 @@
 <div class="sidebar">
+  <div class="input-box">
+    <input
+      appInputChange
+      type="text"
+      placeholder="Copy Rss Feed Url and press enter"
+    />
+  </div>
   <ul class="channel-list">
-    <li class="channel">
-      <div class="title">{{ channel?.title }}</div>
-      <div class="description">{{ channel?.description }}</div>
-    </li>
-    <li class="channel">
-      <div class="title">{{ channel?.title }}</div>
-      <div class="description">{{ channel?.description }}</div>
-    </li>
-    <li class="channel">
-      <div class="title">{{ channel?.title }}</div>
-      <div class="description">{{ channel?.description }}</div>
-    </li>
-    <li class="channel">
-      <div class="title">{{ channel?.title }}</div>
-      <div class="description">{{ channel?.description }}</div>
-    </li>
+    <ng-container *ngFor="let channel of channels">
+      <li
+        class="channel"
+        [ngClass]="{ active: activeFeed === channel?.rssUrl }"
+        (click)="showArticles(channel?.rssUrl)"
+      >
+        <span class="delete" (click)="deleteFeed(channel?.rssUrl)">x</span>
+        <div class="title">{{ channel?.title }}</div>
+        <div class="description">{{ channel?.description }}</div>
+      </li>
+    </ng-container>
   </ul>
 </div>

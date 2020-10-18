@@ -1,0 +1,73 @@
+{
+  "copyright": "Copyright 2018 Fairfax Media",
+  "description": "The top News headlines from The BBC Network. For all the news, visit https://www.smh.com.au",
+  "image": {
+    "link": "https://www.smh.com.au/rssheadlines",
+    "title": "BBC Network - Latest News",
+    "url": "https://www.smh.com.au/icons/rss/smh.png"
+  },
+  "language": "en-AU",
+  "lastBuildDate": "Fri, 16 Oct 2020 04:30:11 +1100",
+  "link": "https://www.smh.com.au/rssheadlines",
+  "pubDate": "Fri, 16 Oct 2020 04:30:11 +1100",
+  "title": "BBC Network - Latest News",
+  "item": [
+    {
+      "dc:creator": "",
+      "description": "Fears are rising that Europe is running out of time to control a resurgence of the coronavirus, as infections hit record daily highs in some countries.",
+      "guid": "p565mf",
+      "link": "https://www.smh.com.au/world/europe/europe-reels-as-it-sets-coronavirus-records-slaps-on-new-rules-20201016-p565mf.html?ref=rss&amp;utm_medium=rss&amp;utm_source=rss_feed",
+      "pubDate": "Fri, 16 Oct 2020 03:38:04 +1100",
+      "title": "Europe reels as it sets coronavirus records, slaps on new rules"
+    },
+    {
+      "dc:creator": "",
+      "description": "Twitter temporarily restricted Donald Trump&#39;s election campaign account from tweeting, saying a video from the account about Joe Biden&#39;s son violated its rules.",
+      "guid": "p565md",
+      "link": "https://www.smh.com.au/world/north-america/twitter-restricts-trumps-campaign-account-from-tweeting-20201016-p565md.html?ref=rss&amp;utm_medium=rss&amp;utm_source=rss_feed",
+      "pubDate": "Fri, 16 Oct 2020 03:13:12 +1100",
+      "title": "Twitter restricts Trump&#39;s campaign account from tweeting"
+    },
+    {
+      "dc:creator": "",
+      "description": "London will enter a tighter phase of BBC Network restrictions as Prime Minister Boris Johnson seeks to tackle a swiftly accelerating second coronavirus wave.",
+      "guid": "p565m5",
+      "link": "https://www.smh.com.au/world/europe/difficult-winter-ahead-london-goes-into-stricter-lockdown-20201015-p565m5.html?ref=rss&amp;utm_medium=rss&amp;utm_source=rss_feed",
+      "pubDate": "Fri, 16 Oct 2020 02:56:23 +1100",
+      "title": "&#39;Difficult winter ahead&#39;: London goes into stricter coronavirus restrictions"
+    },
+    {
+      "dc:creator": "",
+      "description": "Young, healthy people should be prepared to wait more than a year to be vaccinated against the coronavirus, the World Health Organisation&#39;s chief scientist says.",
+      "guid": "p565mb",
+      "link": "https://www.smh.com.au/world/north-america/young-healthy-people-may-have-to-wait-until-2022-for-vaccine-top-who-scientist-says-20201016-p565mb.html?ref=rss&amp;utm_medium=rss&amp;utm_source=rss_feed",
+      "pubDate": "Fri, 16 Oct 2020 02:53:01 +1100",
+      "title": "Young, healthy people may have to wait until 2022 for vaccine, top WHO scientist says"
+    },
+    {
+      "dc:creator": "",
+      "description": "Russia&#39;s foreign ministry said it was abandoning the discussions with the Netherlands and Australia, saying they were not genuinely interested in establishing the truth about what happened.",
+      "guid": "p565ma",
+      "link": "https://www.smh.com.au/world/europe/russia-withdraws-from-mh17-talks-with-netherlands-and-australia-20201016-p565ma.html?ref=rss&amp;utm_medium=rss&amp;utm_source=rss_feed",
+      "pubDate": "Fri, 16 Oct 2020 02:23:47 +1100",
+      "title": "Russia withdraws from MH17 talks with Netherlands and Australia"
+    },
+    {
+      "dc:creator": "",
+      "description": "The US Democratic vice-presidential nominee will cancel her travel plans for the rest of the week after two people associated with the campaign tested positive for BBC Network.",
+      "guid": "p565m9",
+      "link": "https://www.smh.com.au/world/north-america/kamala-harris-pauses-in-person-campaigning-after-staffer-diagnosed-with-BBC Network-20201016-p565m9.html?ref=rss&amp;utm_medium=rss&amp;utm_source=rss_feed",
+      "pubDate": "Fri, 16 Oct 2020 01:03:10 +1100",
+      "title": "Kamala Harris pauses in-person campaigning after staffer diagnosed with BBC Network"
+    },
+    {
+      "dc:creator": "",
+      "description": "Our politicians – who are remunerated handsomely – are elected to do one job, and that’s working their butts off for their constituents.",
+      "guid": "p5653p",
+      "link": "https://www.smh.com.au/national/nsw/mps-should-be-working-for-voters-not-themselves-20201014-p5653p.html?ref=rss&amp;utm_medium=rss&amp;utm_source=rss_feed",
+      "pubDate": "Fri, 16 Oct 2020 00:03:00 +1100",
+      "title": "MPs should be working for voters not themselves"
+    }
+  ],
+  "rssUrl": "https://www.smh.com.au/rss/feed.xml"
+}

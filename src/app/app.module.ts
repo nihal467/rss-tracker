@@ -9,11 +9,13 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { FeedEffects } from 'src/app/effects/feed.effects';
 import { FeedReducer } from 'src/app/reducers/feed.reducers';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
+    CommonModule,
     AppRoutingModule,
     HttpClientModule,
     StoreModule.forRoot({ feeds: FeedReducer }),

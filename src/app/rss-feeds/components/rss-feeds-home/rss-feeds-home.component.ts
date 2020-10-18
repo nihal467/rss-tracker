@@ -1,7 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { Observable, of } from 'rxjs';
-import { delay, mergeMap, repeat, tap } from 'rxjs/operators';
+import {
+  delay,
+  distinctUntilChanged,
+  mergeMap,
+  repeat,
+  tap,
+} from 'rxjs/operators';
 import * as FeedAction from '../../../actions/feed.actions';
 
 @Component({
@@ -11,18 +17,22 @@ import * as FeedAction from '../../../actions/feed.actions';
 })
 export class RssFeedsHomeComponent implements OnInit {
   feeds$: Observable<any>;
-  channel: any[];
+  channels: any[];
   constructor(private store: Store<{ feeds: any }>) {
     this.feeds$ = store.pipe(select('feeds'));
-    // this.rssFeedService.getRSSFeeds().subscribe((res) => {
-    //   console.log(res);
-    //   console.log(xmlParser.parse(res));
-    // });
   }
 
   ngOnInit(): void {
-    this.feeds$.subscribe((res) => {
-      this.channel = (res.rss && res.rss.channel) || {};
+    this.feeds$.pipe(distinctUntilChanged()).subscribe((res) => {
+      this.channels = res.rssFeeds || [];
+      if (this.channels.length) {
+        // this.store.dispatch(
+        //   FeedAction.updateActiveFeed({
+        //     payload: { activeFeed: this.channels[0].rssUrl },
+        //   })
+        // );
+        // this.store.dispatch(FeedAction.getArticlesByFeed());
+      }
       console.log(res);
     });
     const poll = of({}).pipe(

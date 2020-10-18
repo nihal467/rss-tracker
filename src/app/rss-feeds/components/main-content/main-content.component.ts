@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import * as FeedAction from '../../../actions/feed.actions';
 
 @Component({
   selector: 'app-main-content',
@@ -6,8 +8,13 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./main-content.component.scss'],
 })
 export class MainContentComponent implements OnInit {
-  @Input() channel;
-  constructor() {}
+  @Input() channels;
+  articles: any = [];
+  constructor(private store: Store<any>) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.store.select('feeds').subscribe((res) => {
+      this.articles = res.articles;
+    });
+  }
 }
