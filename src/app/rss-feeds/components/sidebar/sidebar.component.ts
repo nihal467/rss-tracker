@@ -13,19 +13,24 @@ export class SidebarComponent implements OnInit {
   subscriber: any;
   constructor(private store: Store<any>) {}
 
-  ngOnInit(): void {
-    this.subscriber = this.store.pipe(select('feeds')).subscribe((res) => {
-      if (res.activeFeed) {
-        this.showArticles(res.activeFeed, true);
-      }
-    });
-  }
+  ngOnInit(): void {}
 
+  /**
+   * deletes feed from the store by calling {deleteFeed} action
+   * loads the feeds using {loadFeeds} acton
+   * @param id the {string} that holds feed url
+   */
   deleteFeed(id): void {
     this.store.dispatch(FeedAction.deleteFeed({ payload: { rssUrl: id } }));
     this.store.dispatch(FeedAction.loadFeeds());
   }
 
+  /**
+   * shows the selected feeds articles and highlight the selected feed in sidebar
+   * @param id the {string} that holds feedurl
+   * @param unsubscribe the {boolean} that used to unsubscribe store subscription
+   * if this method called from store subscription.
+   */
   showArticles(id, unsubscribe?): void {
     this.activeFeed = id;
     if (unsubscribe) {

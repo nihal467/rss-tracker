@@ -12,6 +12,11 @@ export class MainContentComponent implements OnInit {
   constructor(private store: Store<any>) {}
 
   ngOnInit(): void {
+    /**
+     * this code sinppet subscribes to store changes
+     * after successful subscription it will read articles form state and copy it to
+     * property
+     */
     this.store.select('feeds').subscribe((res) => {
       this.articles = res.articles[res.activeFeed];
     });

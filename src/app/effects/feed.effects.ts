@@ -6,7 +6,12 @@ import { EMPTY, of } from 'rxjs';
 import * as FeedActions from '../actions/feed.actions';
 import { RssFeedsService } from 'src/app/rss-feeds/services/rss-feeds.service';
 import { Store } from '@ngrx/store';
-
+/**
+ * this is effect file is intended to listen to
+ * ngrx store actions which are dispatched from components and services
+ * and calls if any side effects(like asynchronous api calls) for the action and
+ * returns specified action to dispatch
+ */
 @Injectable({
   providedIn: 'root',
 })
@@ -77,6 +82,10 @@ export class FeedEffects {
     private store: Store<any>
   ) {}
 
+  /**
+   * returns random object
+   * this method is intended to generate random object
+   */
   createRandomObj(): object {
     const generatedObj = {
       'dc:creator': '',
@@ -93,12 +102,18 @@ export class FeedEffects {
     return generatedObj;
   }
 
-  // helper functions
-
+  /**
+   * return floor value of generated random number
+   * @param rightBound number to mutliply with random number
+   */
   randomInt(rightBound): number {
     return Math.floor(Math.random() * rightBound);
   }
 
+  /**
+   * returns generated string
+   * @param size lenght of the string to be generated
+   */
   randomString(size): string {
     const alphaChars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
     let generatedString = '';

@@ -24,13 +24,29 @@ export class RssFeedsHomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.subscribeToStore();
+    this.pollTheLoadFeeds();
+  }
+
+  /**
+   * subscribe to store to listen for new  rss feeds added and
+   * for existing rssFeeds update and active feed update
+   */
+  subscribeToStore(): void {
     this.feeds$.pipe(distinctUntilChanged()).subscribe((res) => {
       this.channels = res.rssFeeds || [];
       this.activeFeed = res.activeFeed;
     });
+  }
+
+  /**
+   * dispatches loadFeeds action based on interval passed to delay method
+   * to get the article updates of rss feeds
+   */
+  pollTheLoadFeeds(): void {
     const poll = of({}).pipe(
       mergeMap((_) => of(this.store.dispatch(FeedAction.loadFeeds()))),
-      delay(1000000),
+      delay(3000),
       repeat()
     );
 

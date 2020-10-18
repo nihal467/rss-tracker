@@ -1,3 +1,8 @@
+/**
+ * this is action file is intended to create
+ * ngrx store actions which are dispatched from components and services
+ * to communicate with store and state through reducers
+ */
 import { createAction, props } from '@ngrx/store';
 
 export const loadFeeds = createAction('[RSS Feed Page] Load Feeds');

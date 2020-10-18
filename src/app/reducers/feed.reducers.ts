@@ -1,3 +1,9 @@
+/**
+ * this is reducer file is intended to listen to
+ * the ngrx store actions which are dispatched from components and services
+ * to communicate with store and state and returns
+ * new state without mutating existing state
+ */
 import { Action, createReducer, on } from '@ngrx/store';
 import * as FeedActions from '../actions/feed.actions';
 export const intialState = {
