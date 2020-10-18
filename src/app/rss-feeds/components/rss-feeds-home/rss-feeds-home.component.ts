@@ -34,7 +34,7 @@ export class RssFeedsHomeComponent implements OnInit {
    */
   subscribeToStore(): void {
     this.feeds$.pipe(distinctUntilChanged()).subscribe((res) => {
-      this.channels = res.rssFeeds || [];
+      this.channels = res.rssFeeds;
       this.activeFeed = res.activeFeed;
     });
   }

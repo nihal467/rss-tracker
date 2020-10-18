@@ -27,10 +27,18 @@ describe('InputChangeDirective', () => {
   });
   it('call keyup event change method', () => {
     directive = new InputChangeDirective(store);
-    directive._handleValueChange({
+    let eventObj = {
       which: 13,
       target: { value: 'some value' },
-    });
+    };
+    directive._handleValueChange(eventObj);
+    expect(eventObj.target.value).toEqual('');
+    eventObj = {
+      which: 14,
+      target: { value: 'some value' },
+    };
+    directive._handleValueChange(eventObj);
+    expect(eventObj.target.value).toEqual('some value');
     expect(directive).toBeTruthy();
   });
 });

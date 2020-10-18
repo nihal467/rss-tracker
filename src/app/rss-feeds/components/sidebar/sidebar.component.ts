@@ -31,11 +31,8 @@ export class SidebarComponent implements OnInit {
    * @param unsubscribe the {boolean} that used to unsubscribe store subscription
    * if this method called from store subscription.
    */
-  showArticles(id, unsubscribe?): void {
+  showArticles(id): void {
     this.activeFeed = id;
-    if (unsubscribe) {
-      this.subscriber.unsubscribe();
-    }
     console.log(id);
     this.store.dispatch(
       FeedAction.updateActiveFeed({ payload: { activeFeed: id } })

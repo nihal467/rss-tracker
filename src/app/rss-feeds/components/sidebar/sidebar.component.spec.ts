@@ -33,17 +33,12 @@ describe('SidebarComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should call subscribe', () => {
-    store.dispatch(
-      FeedAction.updateActiveFeed({ payload: { activeFeed: 'somefeed' } })
-    );
-  });
-
   it('should delete feed', () => {
-    component.deleteFeed('somefeed');
+    component.deleteFeed('assets/mocks/mock.feed.json');
   });
 
   it('should show feed articles', () => {
-    component.showArticles('somefeed', true);
+    component.showArticles('somefeed');
+    expect(component.activeFeed).toEqual('somefeed');
   });
 });

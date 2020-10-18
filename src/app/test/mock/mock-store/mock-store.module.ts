@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { provideMockStore } from '@ngrx/store/testing';
 import { StoreModule } from '@ngrx/store';
 
-const intialState = {
+export const intialState = {
   feeds: {
     feedUrls: [
       'https://www.smh.com.au/rss/feed.xml',

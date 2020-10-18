@@ -2,16 +2,20 @@ import { HttpClient } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
 import { MockStore } from '@ngrx/store/testing';
 
-import { of } from 'rxjs';
-import { MockStoreModule } from 'src/app/test/mock/mock-store/mock-store.module';
+import { observable, Observable, of } from 'rxjs';
+import {
+  MockStoreModule,
+  intialState,
+} from 'src/app/test/mock/mock-store/mock-store.module';
 
 import { RssFeedsService } from './rss-feeds.service';
 
 describe('RssFeedsService', () => {
   let service: RssFeedsService;
   let store: MockStore;
+  const URL_FEED = 'google.com';
   const httpClientSpy = jasmine.createSpyObj('HttpClient', ['get']);
-  httpClientSpy.get.and.returnValue(of({ data: {} }));
+  httpClientSpy.get.and.returnValue(of({ data: { feedUrl: URL_FEED } }));
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -32,10 +36,20 @@ describe('RssFeedsService', () => {
   });
 
   it('set state to feedurls', () => {
-    store.setState({ feedUrls: ['google.com'] });
+    store.setState({ feedUrls: [URL_FEED] });
+
+    let feedUrl = '';
+    store.select('feedUrls').subscribe((res) => {
+      feedUrl = res[0];
+    });
+
+    expect(feedUrl).toEqual(URL_FEED);
   });
 
-  it('call rss feed', () => {
-    service.getRSSFeeds();
+  it('should call load feeds', () => {
+    service.getRSSFeeds().subscribe((res) => {
+      console.log(res);
+      expect(res.data.feedUrl).toEqual(URL_FEED);
+    });
   });
 });
