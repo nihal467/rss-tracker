@@ -2,7 +2,12 @@
   <ul class="feed-list" *ngIf="articles?.length">
     <li class="feed" *ngFor="let item of articles">
       <a class="title" target="_blank" [href]="item?.link">{{ item?.title }}</a>
+      <span class="status {{ item?.status }}">{{ item?.status }}</span>
       <div class="description">{{ item?.description }}</div>
+      <div class="pub-date">
+        <span class="label">Published Date:</span>
+        {{ item?.pubDate | date: "medium" }}
+      </div>
     </li>
   </ul>
 </div>

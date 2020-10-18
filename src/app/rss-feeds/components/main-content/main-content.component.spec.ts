@@ -1,4 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { StoreModule } from '@ngrx/store';
+import { MockStoreModule } from 'src/app/test/mock/mock-store/mock-store.module';
 
 import { MainContentComponent } from './main-content.component';
 
@@ -8,9 +10,9 @@ describe('MainContentComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MainContentComponent ]
-    })
-    .compileComponents();
+      declarations: [MainContentComponent],
+      imports: [MockStoreModule],
+    }).compileComponents();
   });
 
   beforeEach(() => {

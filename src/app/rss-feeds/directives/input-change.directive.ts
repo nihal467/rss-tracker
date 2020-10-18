@@ -17,9 +17,9 @@ export class InputChangeDirective {
 
   onChange(val): void {
     this.store.dispatch(FeedAction.addNewFeedUrl({ payload: { url: val } }));
-    this.store.dispatch(
-      FeedAction.updateActiveFeed({ payload: { activeFeed: val } })
-    );
+    // this.store.dispatch(
+    //   FeedAction.updateActiveFeed({ payload: { activeFeed: val } })
+    // );
     this.store.dispatch(FeedAction.loadFeeds());
   }
 }

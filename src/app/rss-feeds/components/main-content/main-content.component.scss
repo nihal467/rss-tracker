@@ -4,13 +4,37 @@
   padding: 10px;
   .feed-list {
     .feed {
+      position: relative;
       margin-bottom: 10px;
       padding: 5px;
       background-color: #ddd;
       border-radius: 10px;
+      .status {
+        padding: 0 10px;
+        width: auto;
+        padding-right: 14px;
+        border: 1px solid;
+        position: absolute;
+        right: 17px;
+        border-radius: 21px;
+        background: blue;
+        color: #fff;
+        font-weight: 600;
+        &.deleted {
+          background-color: red;
+        }
+      }
+
       .title {
+        display: inline-block;
+        width: 85%;
         font-weight: 600;
         font-size: 18px;
+      }
+      .pub-date {
+        .label {
+          font-weight: 600;
+        }
       }
     }
   }

@@ -19,6 +19,10 @@ export const getArticlesByFeed = createAction(
   '[RSS Feed Main Content Page] Get Articles By Feed'
 );
 
+export const resetArticles = createAction(
+  '[RSS Feed Main Content Page] Reset Articles'
+);
+
 export const deleteFeed = createAction(
   '[RSS Feed Sidebar Page] Delete Feed',
   props<{ payload: any }>()

@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
+import { select, Store } from '@ngrx/store';
 import * as FeedAction from '../../../actions/feed.actions';
 
 @Component({
@@ -9,12 +9,12 @@ import * as FeedAction from '../../../actions/feed.actions';
 })
 export class SidebarComponent implements OnInit {
   @Input() channels;
+  @Input() activeFeed;
   subscriber: any;
-  activeFeed: any;
   constructor(private store: Store<any>) {}
 
   ngOnInit(): void {
-    this.subscriber = this.store.select('feeds').subscribe((res) => {
+    this.subscriber = this.store.pipe(select('feeds')).subscribe((res) => {
       if (res.activeFeed) {
         this.showArticles(res.activeFeed, true);
       }
@@ -26,7 +26,7 @@ export class SidebarComponent implements OnInit {
     this.store.dispatch(FeedAction.loadFeeds());
   }
 
-  showArticles(id, unsubscribe): void {
+  showArticles(id, unsubscribe?): void {
     this.activeFeed = id;
     if (unsubscribe) {
       this.subscriber.unsubscribe();

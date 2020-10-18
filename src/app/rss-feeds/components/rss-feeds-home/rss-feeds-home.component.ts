@@ -18,6 +18,7 @@ import * as FeedAction from '../../../actions/feed.actions';
 export class RssFeedsHomeComponent implements OnInit {
   feeds$: Observable<any>;
   channels: any[];
+  activeFeed: string;
   constructor(private store: Store<{ feeds: any }>) {
     this.feeds$ = store.pipe(select('feeds'));
   }
@@ -25,19 +26,11 @@ export class RssFeedsHomeComponent implements OnInit {
   ngOnInit(): void {
     this.feeds$.pipe(distinctUntilChanged()).subscribe((res) => {
       this.channels = res.rssFeeds || [];
-      if (this.channels.length) {
-        // this.store.dispatch(
-        //   FeedAction.updateActiveFeed({
-        //     payload: { activeFeed: this.channels[0].rssUrl },
-        //   })
-        // );
-        // this.store.dispatch(FeedAction.getArticlesByFeed());
-      }
-      console.log(res);
+      this.activeFeed = res.activeFeed;
     });
     const poll = of({}).pipe(
       mergeMap((_) => of(this.store.dispatch(FeedAction.loadFeeds()))),
-      delay(30000),
+      delay(10000),
       repeat()
     );
 

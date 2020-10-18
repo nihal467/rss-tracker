@@ -8,13 +8,12 @@ import * as FeedAction from '../../../actions/feed.actions';
   styleUrls: ['./main-content.component.scss'],
 })
 export class MainContentComponent implements OnInit {
-  @Input() channels;
   articles: any = [];
   constructor(private store: Store<any>) {}
 
   ngOnInit(): void {
     this.store.select('feeds').subscribe((res) => {
-      this.articles = res.articles;
+      this.articles = res.articles[res.activeFeed];
     });
   }
 }
