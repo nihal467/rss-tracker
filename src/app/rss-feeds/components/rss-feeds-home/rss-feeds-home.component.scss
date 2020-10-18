@@ -1,11 +1,19 @@
 .rss-feeds-home {
-    display: flex;
-    height: 100%;
-    .sidebar {
-        width: 30%;
-    }
-    .main-content {
-        flex: 1;
-        border-left: 1px solid;
-    }
+  display: flex;
+  height: 100%;
+  .sidebar {
+    width: 30%;
+  }
+  .main-content {
+    flex: 1;
+    border-left: 1px solid;
+  }
+}
+.feed-error {
+  position: fixed;
+  background: #eee;
+  padding: 10px;
+  color: red;
+  top: 20px;
+  left: 10px;
 }

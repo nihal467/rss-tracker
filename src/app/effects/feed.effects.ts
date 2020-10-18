@@ -49,16 +49,12 @@ export class FeedEffects {
               FeedActions.feedsLoaded({ payload: jsonFeeds }),
             ];
 
-            if (!activeFeed) {
+            const feedUrl = !activeFeed ? jsonFeeds[0].rssUrl : newFeedUrl;
+
+            if (feedUrl) {
               actonsArray.push(
                 FeedActions.updateActiveFeed({
-                  payload: { activeFeed: jsonFeeds[0].rssUrl },
-                })
-              );
-            } else if (newFeedUrl) {
-              actonsArray.push(
-                FeedActions.updateActiveFeed({
-                  payload: { activeFeed: newFeedUrl },
+                  payload: { activeFeed: feedUrl },
                 })
               );
             }
@@ -69,7 +65,14 @@ export class FeedEffects {
           }),
           catchError((err) => {
             console.log(err);
-            return of(FeedActions.deleteFeed({ payload: { rssUrl: err.url } }));
+            return of(
+              FeedActions.updateError({
+                payload: { error: 'Could not load Rss Feed' },
+              }),
+              FeedActions.deleteFeed({
+                payload: { rssUrl: err.url },
+              })
+            );
           })
         )
       )

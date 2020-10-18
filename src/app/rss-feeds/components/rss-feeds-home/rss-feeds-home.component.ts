@@ -19,6 +19,7 @@ export class RssFeedsHomeComponent implements OnInit {
   feeds$: Observable<any>;
   channels: any[];
   activeFeed: string;
+  error: string;
   constructor(private store: Store<{ feeds: any }>) {
     this.feeds$ = store.pipe(select('feeds'));
   }
@@ -36,6 +37,14 @@ export class RssFeedsHomeComponent implements OnInit {
     this.feeds$.pipe(distinctUntilChanged()).subscribe((res) => {
       this.channels = res.rssFeeds;
       this.activeFeed = res.activeFeed;
+      this.error = res.error;
+      if (this.error) {
+        setTimeout(() => {
+          this.store.dispatch(
+            FeedAction.updateError({ payload: { error: '' } })
+          );
+        }, 2000);
+      }
     });
   }
 

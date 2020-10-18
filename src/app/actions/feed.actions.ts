@@ -32,3 +32,8 @@ export const deleteFeed = createAction(
   '[RSS Feed Sidebar Page] Delete Feed',
   props<{ payload: any }>()
 );
+
+export const updateError = createAction(
+  '[RSS Feed Sidebar page] Update error',
+  props<{ payload: any }>()
+);
