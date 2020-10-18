@@ -10,9 +10,10 @@ import { EffectsModule } from '@ngrx/effects';
 import { FeedEffects } from 'src/app/effects/feed.effects';
 import { FeedReducer } from 'src/app/reducers/feed.reducers';
 import { CommonModule } from '@angular/common';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, HeaderComponent],
   imports: [
     BrowserModule,
     CommonModule,
