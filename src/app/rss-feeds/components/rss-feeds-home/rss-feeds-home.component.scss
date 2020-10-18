@@ -1,0 +1,11 @@
+.rss-feeds-home {
+    display: flex;
+    height: 100%;
+    .sidebar {
+        width: 30%;
+    }
+    .main-content {
+        flex: 1;
+        border-left: 1px solid;
+    }
+}
