@@ -1,6 +1,6 @@
 # RSS Tracker
 
-This project is all about media monitoring. A lot of media currently is hosted online, and for this project we want to detect when the media content changes, so that we can quickly react to this.
+This project is all about media monitoring. A lot of media currently is hosted online, and for this project, we want to detect when the media content changes, so that we can quickly react to this.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.6.
 
