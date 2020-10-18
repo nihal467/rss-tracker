@@ -4,6 +4,7 @@ export const intialState = {
   feedUrls: [
     'https://www.smh.com.au/rss/feed.xml',
     'assets/mocks/mock.feed.json',
+    'https://gadgets.ndtv.com/rss/polls/feeds',
   ],
   newFeedUrl: '',
   rssFeeds: [],

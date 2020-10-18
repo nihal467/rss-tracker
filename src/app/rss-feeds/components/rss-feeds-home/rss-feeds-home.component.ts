@@ -30,7 +30,7 @@ export class RssFeedsHomeComponent implements OnInit {
     });
     const poll = of({}).pipe(
       mergeMap((_) => of(this.store.dispatch(FeedAction.loadFeeds()))),
-      delay(10000),
+      delay(1000000),
       repeat()
     );
 
