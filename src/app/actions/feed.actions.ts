@@ -4,20 +4,21 @@
  * to communicate with store and state through reducers
  */
 import { createAction, props } from '@ngrx/store';
+import { Feed } from 'src/app/models/app-state';
 
 export const loadFeeds = createAction('[RSS Feed Page] Load Feeds');
 export const feedsLoaded = createAction(
   '[RSS Feed API] Feeds Loaded Success',
-  props<{ payload: any }>()
+  props<{ payload: Array<Feed> }>()
 );
 export const addNewFeedUrl = createAction(
   '[RSS Feed Sidebar Page] Add New Feed Url',
-  props<{ payload: any }>()
+  props<{ payload: { url: string } }>()
 );
 
 export const updateActiveFeed = createAction(
   '[RSS Feed Sidebar Page] Update Active Feed',
-  props<{ payload: any }>()
+  props<{ payload: { activeFeed: string } }>()
 );
 
 export const getArticlesByFeed = createAction(
@@ -30,10 +31,10 @@ export const resetArticles = createAction(
 
 export const deleteFeed = createAction(
   '[RSS Feed Sidebar Page] Delete Feed',
-  props<{ payload: any }>()
+  props<{ payload: { rssUrl: string } }>()
 );
 
 export const updateError = createAction(
   '[RSS Feed Sidebar page] Update error',
-  props<{ payload: any }>()
+  props<{ payload: { error: string } }>()
 );

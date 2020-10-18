@@ -136,6 +136,6 @@ const reducer = createReducer(
   })
 );
 
-export const FeedReducer = (state: AppState, action: Action): any => {
+export const FeedReducer = (state: AppState, action: Action): AppState => {
   return reducer(state, action);
 };

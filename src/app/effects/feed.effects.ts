@@ -5,7 +5,7 @@ import * as xmlParser from 'fast-xml-parser';
 import { EMPTY, of } from 'rxjs';
 import * as FeedActions from '../actions/feed.actions';
 import { RssFeedsService } from 'src/app/rss-feeds/services/rss-feeds.service';
-import { select, Store } from '@ngrx/store';
+import { Action, select, Store } from '@ngrx/store';
 import { AppState, Article, Feed } from 'src/app/models/app-state';
 /**
  * this is effect file is intended to listen to
@@ -46,7 +46,7 @@ export class FeedEffects {
 
               return feedObject;
             });
-            const actonsArray: any = [
+            const actonsArray: Array<Action> = [
               FeedActions.feedsLoaded({ payload: jsonFeeds }),
             ];
 

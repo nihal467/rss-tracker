@@ -17,7 +17,7 @@ import * as FeedAction from '../../../actions/feed.actions';
   styleUrls: ['./rss-feeds-home.component.scss'],
 })
 export class RssFeedsHomeComponent implements OnInit {
-  feeds$: Observable<any>;
+  feeds$: Observable<AppState>;
   channels: Array<Feed>;
   activeFeed: string;
   error: string;

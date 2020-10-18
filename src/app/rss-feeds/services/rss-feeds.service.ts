@@ -31,6 +31,5 @@ export class RssFeedsService {
     });
 
     return forkJoin(urlsToCall);
-    // return this.httpClient.get<any>(this.url, requestOptions);
   }
 }
