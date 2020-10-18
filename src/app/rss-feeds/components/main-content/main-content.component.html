@@ -1,1 +1,8 @@
-<p>main-content works!</p>
+<div class="main-content">
+  <ul class="feed-list">
+    <li class="feed" *ngFor="let item of channel.item">
+      <div class="title">{{ item?.title }}</div>
+      <div class="description">{{ item?.description }}</div>
+    </li>
+  </ul>
+</div>

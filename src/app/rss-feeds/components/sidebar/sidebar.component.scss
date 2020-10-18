@@ -1,0 +1,15 @@
+.sidebar {
+  padding: 10px;
+  .channel-list {
+    .channel {
+      margin-bottom: 2px;
+      padding: 5px;
+      background-color: #ddd;
+      cursor: pointer;
+      .title {
+        font-weight: 600;
+        font-size: 18px;
+      }
+    }
+  }
+}

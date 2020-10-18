@@ -23,7 +23,7 @@
     "@ngrx/effects": "^10.0.1",
     "@ngrx/store": "^10.0.1",
     "fast-xml-parser": "^3.17.4",
-    "rxjs": "~6.6.0",
+    "rxjs": "^6.6.3",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
   },

@@ -1,6 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RssFeedsService } from 'src/app/rss-feeds/services/rss-feeds.service';
 import * as xmlParser from 'fast-xml-parser';
+import { select, Store } from '@ngrx/store';
+import * as FeedAction from './actions/feed.actions';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -9,10 +13,4 @@ import * as xmlParser from 'fast-xml-parser';
 })
 export class AppComponent {
   title = 'rss-tracker';
-  constructor(private rssFeedService: RssFeedsService) {
-    this.rssFeedService.getRSSFeeds().subscribe((res) => {
-      console.log(res);
-      console.log(xmlParser.parse(res));
-    });
-  }
 }

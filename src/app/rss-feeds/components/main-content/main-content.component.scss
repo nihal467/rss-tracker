@@ -1,0 +1,17 @@
+.main-content {
+  overflow: auto;
+  max-height: calc(100vh);
+  padding: 10px;
+  .feed-list {
+    .feed {
+      margin-bottom: 10px;
+      padding: 5px;
+      background-color: #ddd;
+      border-radius: 10px;
+      .title {
+        font-weight: 600;
+        font-size: 18px;
+      }
+    }
+  }
+}
